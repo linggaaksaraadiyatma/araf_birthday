@@ -3,178 +3,163 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Selamat Ulang Tahun, Sayang 💖</title>
+  <title>Happy Birthday Lita Araf</title>
   <style>
-    html,body{
-      margin:0; padding:0;
-      height:100%; width:100%;
-      overflow:hidden;
-      font-family:"Poppins",sans-serif;
-      background: linear-gradient(135deg, #FFD6E0 0%, #FFE5EB 50%, #FFF6F8 100%);
-      display:flex; align-items:center; justify-content:center;
+    :root{
+      --pink-1:#ffd7e6;
+      --pink-2:#ff99c8;
+      --accent:#ff6fa8;
+      --soft:#fff0f6;
+    }
+    html,body{height:100%;margin:0;font-family:Inter, 'Segoe UI', Roboto, sans-serif;background:linear-gradient(180deg,var(--pink-1),var(--pink-2));color:#222;overflow:hidden}
+    
+    /* Stage & card */
+    .stage{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;padding:28px;opacity:0;transition:opacity 1s;}
+    
+    .balloons{position:absolute;inset:0;pointer-events:none}
+    .balloon{position:absolute;width:80px;height:110px;border-radius:60% 60% 50% 50%;transform-origin:center bottom;box-shadow:inset -6px -10px 18px rgba(255,255,255,0.2);opacity:0.95}
+    .string{position:absolute;left:50%;transform:translateX(-50%);bottom:-140px;width:2px;height:180px;background:linear-gradient(180deg,#fff0,#0000);}
+    .b1{background:linear-gradient(180deg,#ffd1e8,#ff8fcf);left:5%;animation:rise 12s linear infinite;animation-delay:0s}
+    .b2{background:linear-gradient(180deg,#ffe0f3,#ff77b8);left:18%;width:68px;height:95px;animation:rise 10s linear infinite;animation-delay:2s}
+    .b3{background:linear-gradient(180deg,#ffd6ea,#ff6fa8);left:32%;width:100px;height:135px;animation:rise 14s linear infinite;animation-delay:1s}
+    .b4{background:linear-gradient(180deg,#fff1f7,#ffb2d9);left:50%;width:76px;height:105px;animation:rise 11s linear infinite;animation-delay:3s}
+    .b5{background:linear-gradient(180deg,#ffe8f3,#ff9dcc);left:68%;width:88px;height:118px;animation:rise 13s linear infinite;animation-delay:4s}
+    .b6{background:linear-gradient(180deg,#fff0f6,#ffb6dd);left:85%;width:70px;height:98px;animation:rise 9s linear infinite;animation-delay:1s}
+    @keyframes rise{
+      0%{transform:translateY(110vh) rotate(-6deg)}
+      50%{transform:translateY(45vh) rotate(6deg)}
+      100%{transform:translateY(-40vh) rotate(-10deg)}
     }
 
-    .container{
-      position:relative;
-      width:100%; height:100%;
-      overflow:hidden;
-      display:flex;
-      align-items:center;
-      justify-content:center;
+    .card{position:relative;z-index:10;background:rgba(255,255,255,0.85);backdrop-filter:blur(6px);border-radius:20px;padding:28px;box-shadow:0 12px 40px rgba(0,0,0,0.12);max-width:920px;width:100%;display:flex;gap:24px;align-items:center;flex-wrap:wrap}
+    .left{flex:1;min-width:260px;text-align:center}
+    .photo-wrap{overflow:hidden;display:grid;place-items:center;border:8px solid var(--soft);box-shadow:0 10px 30px rgba(255,105,180,0.14)}
+    .photo-wrap img{width:auto;height:auto;max-width:100%;max-height:300px;display:block}
+
+    .ribbon{position:absolute;top:-18px;left:50%;transform:translateX(-50%);background:linear-gradient(90deg,var(--accent),#ffa3cf);padding:10px 20px;border-radius:999px;color:white;font-weight:700;box-shadow:0 6px 18px rgba(255,105,180,0.18)}
+
+    .right{flex:1;min-width:260px}
+    h1{margin:0 0 8px 0;font-size:34px;color:#4a0026}
+    p.lead{margin:0 0 18px 0;font-size:18px;color:#3b1630;min-height:70px;white-space:pre-wrap;}
+
+    .confetti{position:absolute;inset:0;pointer-events:none;z-index:8}
+    .confetti i{position:absolute;width:10px;height:14px;transform:rotate(15deg);opacity:0;animation:conf 2.6s linear infinite}
+    @keyframes conf{0%{opacity:0;transform:translateY(-20px) rotate(0deg)}10%{opacity:1}100%{opacity:1;transform:translateY(120vh) rotate(300deg)}}
+
+    @media (max-width:760px){
+      .card{padding:18px}
+      .photo-wrap img{max-height:220px}
+      h1{font-size:26px}
     }
 
-    .container img{
-      width:320px; height:400px;
-      object-fit:cover;
-      border-radius:20px;
-      box-shadow:0 10px 40px rgba(255,107,129,0.3);
-      border:4px solid #fff;
-      filter:brightness(0.95);
-      position:relative;
-      z-index:2;
-    }
+    .heart{position:absolute;z-index:5;opacity:0.14;filter:blur(2px);}
 
-    /* Teks ucapan */
-    .overlay{
-      position:absolute;
-      top:0; left:0; right:0; bottom:0;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      justify-content:center;
-      color:#fff;
-      text-align:center;
-      z-index:3;
-      pointer-events:none;
-    }
-
-    h1{
-      font-size:3rem;
-      color:#ff5e7e;
-      text-shadow:0 0 10px rgba(255,107,129,0.8),
-                   0 0 20px rgba(255,107,129,0.6);
-      margin-bottom:0.5rem;
-      animation: glow 2s infinite alternate;
-    }
-
-    @keyframes glow {
-      from { text-shadow:0 0 10px #ff6b81,0 0 20px #ff6b81,0 0 30px #ff6b81; }
-      to { text-shadow:0 0 20px #ffbfd2,0 0 40px #ffbfd2,0 0 60px #ffbfd2; }
-    }
-
-    p{
-      font-size:1.2rem;
-      color:#ff477e;
-      max-width:600px;
-      margin:0 20px;
-      text-shadow:0 0 8px rgba(255,255,255,0.5);
-    }
-
-    /* Balon */
-    .balloon{
-      position:absolute;
-      width:60px; height:80px;
-      border-radius:50% 50% 45% 45%;
-      background:var(--color);
-      bottom:-100px;
-      opacity:0.9;
-      animation:floatUp linear infinite;
-      z-index:1;
-    }
-
-    @keyframes floatUp{
-      0%{transform:translateY(0) rotate(0deg); opacity:1;}
-      100%{transform:translateY(-110vh) rotate(360deg); opacity:0;}
-    }
-
-    /* Confetti canvas */
-    canvas{
+    /* Overlay pop-up */
+    #overlay {
       position:fixed;
-      top:0; left:0;
-      width:100%; height:100%;
-      pointer-events:none;
-      z-index:4;
+      inset:0;
+      background:rgba(255,182,193,0.95);
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      flex-direction:column;
+      z-index:9999;
     }
-
+    #overlay button{
+      background:#ff69b4;
+      color:white;
+      border:none;
+      padding:20px 40px;
+      font-size:24px;
+      border-radius:15px;
+      cursor:pointer;
+      box-shadow:0 5px 15px rgba(0,0,0,0.2);
+      transition:0.3s;
+    }
+    #overlay button:hover{background:#ff4da6;}
   </style>
 </head>
 <body>
-  <div class="container">
-    <!-- Ganti foto di sini -->
-    <img src="foto.jpg" alt="Foto Pacar" />
-    <div class="overlay">
-      <h1>Happy Birtday My favorite Scorpio ♏</h1>
-      <p>I hope you’re always happy and doing well. I’m someone who will always be proud of everything you’ve achieved, and I’ll always be your front guard — the one who’s ready to protect and support you.</p>
-      <br>
-      <p>Hopefully, at the age of 22, you’ll become an even better person and, of course, always stay happy! I don’t like seeing you sad. I hope your special day is as amazing and beautiful as you are. I love you!! 💕
- 💖</p>
-    </div>
+
+  <!-- Overlay pop-up sebelum memutar musik -->
+  <div id="overlay">
+    <button id="playBtn">Play Music & Open Page</button>
   </div>
-  <canvas id="confetti"></canvas>
+
+  <div class="stage">
+    <div class="balloons" aria-hidden="true">
+      <div class="balloon b1"><div class="string"></div></div>
+      <div class="balloon b2"><div class="string"></div></div>
+      <div class="balloon b3"><div class="string"></div></div>
+      <div class="balloon b4"><div class="string"></div></div>
+      <div class="balloon b5"><div class="string"></div></div>
+      <div class="balloon b6"><div class="string"></div></div>
+    </div>
+
+    <div class="confetti" id="confetti" aria-hidden="true"></div>
+
+    <div class="card" role="main">
+      <div class="ribbon">From Your favorite Pisces</div>
+      <div class="left">
+        <div class="photo-wrap">
+          <img id="heroPhoto" src="foto_lita.jpeg" alt="Foto cantikmu"/>
+        </div>
+      </div>
+      <div class="right">
+        <h1>Happy Birthday Lita 💕</h1>
+        <p class="lead" id="typedText"></p>
+      </div>
+    </div>
+
+    <audio id="bgMusic" loop>
+      <source src="lagu.mp3" type="audio/mpeg">
+      Browser kamu tidak mendukung pemutar audio.
+    </audio>
+
+    <svg class="heart" width="420" height="420" viewBox="0 0 24 24" style="right:6%;top:4%;position:absolute;transform:scale(2);">
+      <path fill="#ff9ac7" d="M12 21s-7.5-4.6-9.2-7.2C.9 9.9 3 6 6 5.1 8 .9 12 3 12 3s4-2.1 6 2.1c3 .9 5.1 4.8 3.2 8.7C19.5 16.4 12 21 12 21z"/>
+    </svg>
+  </div>
 
   <script>
-    // --- Balon animasi ---
-    const container = document.querySelector('.container');
-    const colors = ['#ff6b81','#ffd166','#ff9f43','#f78da7','#ffcad4','#fcb1b1'];
-
-    function createBalloon(){
-      const b = document.createElement('div');
-      b.classList.add('balloon');
-      b.style.left = Math.random()*100 + '%';
-      b.style.setProperty('--color', colors[Math.floor(Math.random()*colors.length)]);
-      b.style.animationDuration = (8 + Math.random()*6) + 's';
-      b.style.transform = `scale(${0.8 + Math.random()*0.6})`;
-      container.appendChild(b);
-      setTimeout(()=> b.remove(), 14000);
+    // confetti
+    const conf = document.getElementById('confetti');
+    const colors = ['#ffcce6','#ffd9f2','#ffb6db','#ff8fcf','#ffd1e8'];
+    for(let i=0;i<32;i++){
+      const el=document.createElement('i');
+      el.style.left=Math.random()*100+'%';
+      el.style.top=(Math.random()*20 - 10)+'%';
+      el.style.width=(6+Math.random()*10)+'px';
+      el.style.height=(8+Math.random()*12)+'px';
+      el.style.background=colors[Math.floor(Math.random()*colors.length)];
+      el.style.transform='rotate('+Math.random()*360+'deg)';
+      el.style.animationDelay=(Math.random()*1.4)+'s';
+      conf.appendChild(el);
     }
-    setInterval(createBalloon, 700);
 
-    // --- Confetti efek ---
-    const canvas = document.getElementById('confetti');
-    const ctx = canvas.getContext('2d');
-    let W = canvas.width = window.innerWidth;
-    let H = canvas.height = window.innerHeight;
+    // typing effect
+    const message = "You have this quiet strength and warmth that make everyone feel at ease and I’m so proud of everything you’ve achieved. I’ll always be here, your front guard, ready to protect and support you. At 22, may you grow even stronger, happier, and surrounded by love. You deserve nothing less than peace, laughter, and all the beautiful things in life. I love you! 💖";
+    const textElement = document.getElementById('typedText');
+    let i = 0;
+    function typeWriter(){
+      if(i < message.length){
+        textElement.textContent += message.charAt(i);
+        i++;
+        setTimeout(typeWriter, 80);
+      }
+    }
 
-    window.addEventListener('resize', ()=> {
-      W = canvas.width = window.innerWidth;
-      H = canvas.height = window.innerHeight;
+    // Pop-up play music
+    const overlay = document.getElementById('overlay');
+    const playBtn = document.getElementById('playBtn');
+    const music = document.getElementById('bgMusic');
+
+    playBtn.addEventListener('click', () => {
+      music.play();
+      overlay.style.display = 'none';
+      document.querySelector('.stage').style.opacity = 1;
+      typeWriter();
     });
-
-    const confetti = [];
-    for(let i=0;i<150;i++){
-      confetti.push({
-        x: Math.random()*W,
-        y: Math.random()*H - H,
-        r: Math.random()*6 + 4,
-        d: Math.random()*Math.PI*2,
-        color: colors[Math.floor(Math.random()*colors.length)],
-        speed: Math.random()*3 + 2
-      });
-    }
-
-    function drawConfetti(){
-      ctx.clearRect(0,0,W,H);
-      confetti.forEach(p=>{
-        ctx.beginPath();
-        ctx.arc(p.x,p.y,p.r,0,Math.PI*2,false);
-        ctx.fillStyle=p.color;
-        ctx.fill();
-      });
-      update();
-    }
-
-    function update(){
-      confetti.forEach(p=>{
-        p.y += p.speed;
-        p.x += Math.sin(p.d);
-        if(p.y>H){p.y=-10; p.x=Math.random()*W;}
-      });
-    }
-
-    (function loop(){
-      drawConfetti();
-      requestAnimationFrame(loop);
-    })();
   </script>
 </body>
 </html>
